@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nettoyage Automobile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/fr.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-background"></div>
+        <nav>
+            <ul>
+                <li><a href="#accueil" class="nav-button">Accueil</a></li>
+                <li><a href="#services" class="nav-button">Services</a></li>
+                <li><a href="#tarifs" class="nav-button">Tarifs</a></li>
+                <li><a href="#a-propos" class="nav-button">À propos</a></li>
+                <li><a href="#contact" class="nav-button">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Accueil -->
+    <section id="accueil" class="hero">
+        <img src="net.jpg" alt="Voiture propre" class="hero-image">
+        <div class="hero-content">
+            <h1>Nettoyage automobile professionnel</h1>
+            <p>Votre voiture, notre passion !</p>
+            <button id="rendez-vous-btn">Prendre rendez-vous</button>
+        </div>
+    </section>
+
+
+<!-- Section Services -->
+<section id="services">
+    <h2>Nos services</h2>
+    <div class="services-list">
+        <div class="service-item">
+            <h3>Nettoyage intérieur</h3>
+            <p>Un intérieur propre et désinfecté pour votre confort.</p>
+        </div>
+        <div class="service-item">
+            <h3>Nettoyage extérieur</h3>
+            <p>Votre voiture retrouve son éclat d'origine avec notre lavage extérieur complet.</p>
+        </div>
+        <div class="service-item">
+            <h3>Nettoyage complet</h3>
+            <p>Un service complet pour une voiture impeccable de l'intérieur à l'extérieur.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Section Tarifs -->
+    <section id="tarifs">
+        <h2>Nos tarifs</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Prix</th>
+            </tr>
+            <tr>
+                <td>Nettoyage intérieur</td>
+                <td>50€</td>
+            </tr>
+            <tr>
+                <td>Nettoyage extérieur</td>
+                <td>30€</td>
+            </tr>
+            <tr>
+                <td>Nettoyage complet</td>
+                <td>70€</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="a-propos">
+        <h2>À propos</h2>
+        <p>Nous offrons des services de nettoyage personnalisés et de qualité pour les espaces résidentiels et professionnels. Notre priorité est de créer des environnements propres et sains en utilisant des produits écologiques. Flexibles, professionnels et respectueux de l'environnement, nous adaptons nos services à vos besoins pour garantir votre satisfaction.</p>
+    </section>
+
+     <!-- Section Contact -->
+     <section id="contact">
+        <h2>Contactez-nous</h2>
+        <form id="contact-form">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Adresse</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="date">Date de réservation</label>
+            <input type="text" id="date" name="date" required>
+
+            <label for="time">Heure de réservation</label>
+            <select id="time" name="time" required></select>
+
+            <label for="message-type">Type de service</label>
+            <select id="message-type" name="message-type" required>
+                <option value="">Choisissez une option</option>
+                <option value="nettoyage_interieur">Nettoyage intérieur</option>
+                <option value="nettoyage_exterieur">Nettoyage extérieur</option>
+                <option value="polissage_complet">Nettoyage complet</option>
+                <option value="autre">Autre</option>
+            </select>
+
+            <div id="autre-message-container" style="display: none;">
+                <label for="autre-message">Votre message</label>
+                <textarea id="autre-message" name="autre-message" rows="4"></textarea>
+            </div>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+</body>
+</html>
