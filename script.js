@@ -7,7 +7,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const autreMessageTextarea = document.getElementById('autre-message');
     const dateInput = document.getElementById('date');
     const timeSelect = document.getElementById('time');
-    const parallaxImage = document.querySelector('.parallax-image');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('header nav ul');
+
+    // Gestion du menu mobile
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Fermer le menu mobile lors du clic sur un lien
+    document.querySelectorAll('header nav ul li a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
 
     // Gestion du défilement vers la section contact
     if (rendezVousBtn) {
@@ -39,7 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mise à jour des heures disponibles
     function updateAvailableHours(selectedDate) {
         timeSelect.innerHTML = '';
-        for (let hour = 9; hour < 18; hour++) {
+        const currentDate = new Date();
+        const isToday = selectedDate.toDateString() === currentDate.toDateString();
+        const startHour = isToday ? Math.max(9, currentDate.getHours() + 1) : 9;
+
+        for (let hour = startHour; hour < 18; hour++) {
             const option = document.createElement('option');
             option.value = option.textContent = `${hour}:00`;
             timeSelect.appendChild(option);
@@ -76,4 +97,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-})
+
+    // Gestion du redimensionnement de la fenêtre
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            navMenu.classList.remove('active');
+        }
+    });
+});
