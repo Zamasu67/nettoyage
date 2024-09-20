@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
         timeSelect.innerHTML = '';
         const currentDate = new Date();
         const isToday = selectedDate.toDateString() === currentDate.toDateString();
-        const startHour = isToday ? Math.max(9, currentDate.getHours() + 1) : 9;
+        const startHour = isToday ? Math.max(13, currentDate.getHours() + 1) : 13;
 
-        for (let hour = startHour; hour < 18; hour++) {
+        for (let hour = startHour; hour < 19; hour += 2) {
             const option = document.createElement('option');
             option.value = option.textContent = `${hour}:00`;
             timeSelect.appendChild(option);
